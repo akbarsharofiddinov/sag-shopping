@@ -1,0 +1,31 @@
+@import "./product-item";
+
+.section-products {
+  .section-inner {
+    display: flex;
+    margin-top: 40px;
+    gap: 20px;
+
+    .filter {
+      max-width: 278px;
+    }
+
+    .products-box {
+      display: grid;
+      // grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      row-gap: 30px;
+      column-gap: 15px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .section-inner {
+    flex-direction: column !important;
+
+    .filter {
+      max-width: 100% !important;
+    }
+  }
+}

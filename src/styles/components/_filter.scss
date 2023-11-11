@@ -1,0 +1,63 @@
+.filter {
+  background-color: #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  width: 70%;
+  padding: 40px;
+
+  .top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .title {
+      font-size: 18px;
+    }
+  }
+
+  .slider-box {
+    margin-top: 20px;
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+    padding: 20px 0;
+
+    p {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.layout.dark {
+  .filter {
+    background-color: $dark-blue_bg_hover;
+
+    color: #fff;
+
+    .slider-box {
+      border-color: $light-blue;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .filter {
+    display: flex !important;
+    align-items: start;
+    justify-content: space-between;
+    position: relative;
+    flex-direction: column;
+
+    .slider-box {
+      border: none;
+      width: 100% !important;
+
+      .price {
+        position: absolute;
+        top: 35px;
+        left: 38%;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  input {
+    background-color: $light_bg;
+    border: none;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+}
