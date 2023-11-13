@@ -32,6 +32,13 @@
       flex-direction: column;
       gap: 25px;
 
+      p {
+        span {
+          display: flex;
+          align-items: center;
+        }
+      }
+
       .social-links {
         display: flex;
         align-items: center;

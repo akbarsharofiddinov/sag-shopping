@@ -35,6 +35,9 @@
           margin-left: 10px;
 
           li {
+            &::selection {
+              display: none;
+            }
             border: 2px solid #dbdbdb;
             border-radius: 50%;
             padding: 2px;
@@ -85,6 +88,10 @@
     form {
       display: inline;
 
+      .rating-box {
+        margin: 20px 0 !important;
+      }
+
       textarea {
         margin-top: 20px;
       }
@@ -100,8 +107,15 @@
   .section-rate {
     textarea {
       background-color: $dark-blue_bg_hover;
+      color: #fff;
       &::placeholder {
         color: #bbb;
+      }
+    }
+
+    .rate-scores {
+      p {
+        color: #fff;
       }
     }
   }

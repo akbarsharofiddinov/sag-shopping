@@ -4,7 +4,7 @@ const AdditionalInfo = () => {
   return (
     <section className="section-additional-info">
       <div className="container">
-        <h1 className="title" style={{ width: "500px", textAlign: "center" }}>
+        <h1 className="title" style={{ width: "400px", fontSize: 28 }}>
           Gilamni togri yuvish va foydalanish haqida foydali malumotlar
         </h1>
         <div className="info-boxes">

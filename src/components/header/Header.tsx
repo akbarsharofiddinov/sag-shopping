@@ -12,6 +12,7 @@ const Header = () => {
 
   window.addEventListener("click", () => {
     setShowCategories(false);
+    setShowMenuItems(false);
   });
 
   const catalogs = [
@@ -48,6 +49,7 @@ const Header = () => {
             <div>
               <ul
                 className={showMenuItems ? "header-menu show" : "header-menu"}
+                onClick={(event) => event.stopPropagation()}
               >
                 {showMenuItems ? (
                   <h1
@@ -73,9 +75,6 @@ const Header = () => {
                     }
                   >
                     {catalogs.map((catalog, index) => (
-                      // <li className="category" key={`${catalog}-${index}`}>
-                      //   <a href="/shopping">{catalog}</a>
-                      // </li>
                       <Link
                         to={"/shopping"}
                         key={index}
@@ -106,7 +105,10 @@ const Header = () => {
               <Switch checked={mode} onChange={handleModebutton} />
               <button
                 className="bar-menu"
-                onClick={() => setShowMenuItems(!showMenuItems)}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setShowMenuItems(!showMenuItems);
+                }}
               >
                 <AiOutlineMenu />
               </button>
