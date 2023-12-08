@@ -1,82 +1,38 @@
+import { useAppSelector } from "@/store/hooks/hooks";
 import ProductItem from "./ProductItem/ProductItem";
-import { Filter } from "..";
+import myAxios from "@/api";
+import { useEffect, useState } from "react";
 
 const Products = () => {
-  const products: IProduct[] = [
-    {
-      id: 1,
-      name: "Isfaxon",
-      price: 1298000,
-      product_id: "HN12345_YJ32",
-      rate: 5,
-    },
-    {
-      id: 2,
-      name: "Isfaxon",
-      price: 1298000,
-      product_id: "HN12345_YJ32",
-      rate: 5,
-    },
-    {
-      id: 3,
-      name: "Isfaxon",
-      price: 1298000,
-      product_id: "HN12345_YJ32",
-      rate: 5,
-    },
-    {
-      id: 4,
-      name: "Isfaxon",
-      price: 1298000,
-      product_id: "HN12345_YJ32",
-      rate: 5,
-    },
-    {
-      id: 5,
-      name: "Isfaxon",
-      price: 1298000,
-      product_id: "HN12345_YJ32",
-      rate: 5,
-    },
-    {
-      id: 6,
-      name: "Isfaxon",
-      price: 1298000,
-      product_id: "HN12345_YJ32",
-      rate: 5,
-    },
-    {
-      id: 7,
-      name: "Isfaxon",
-      price: 1298000,
-      product_id: "HN12345_YJ32",
-      rate: 5,
-    },
-  ];
+  const [products, setProducts] = useState<IProduct[]>();
+  const { selectedSubCategoryID } = useAppSelector((state) => state.Categories);
 
-  // const getProducts = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:5500/products");
-  //     const data = await response.json();
-  //     if (response.status === 200) {
-  //       setProducts([...data]);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  async function getProducts() {
+    if (selectedSubCategoryID.id) {
+      try {
+        const response = await myAxios.get(
+          `products?sub_category_id=${selectedSubCategoryID.id}&sub_category_slug=${selectedSubCategoryID.slug}`
+        );
+        const data = await response.data;
+        if (response.status === 200) {
+          setProducts([...data.data]);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
 
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
+  useEffect(() => {
+    getProducts();
+  }, [selectedSubCategoryID]);
 
   return (
-    <section className="section-products">
+    <main className="section-products">
       <div className="container">
-        <h1 className="title">Наши товары</h1>
+        <h1 className="title">Наши товары: {}</h1>
         {products ? (
           <div className="section-inner">
-            <Filter />
             <div className="products-box">
               {products.map((product) => (
                 <ProductItem key={product.id} data={product} />
@@ -87,7 +43,7 @@ const Products = () => {
           <h1>No Products</h1>
         )}
       </div>
-    </section>
+    </main>
   );
 };
 

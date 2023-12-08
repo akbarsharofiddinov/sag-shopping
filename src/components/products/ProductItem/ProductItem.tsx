@@ -1,4 +1,3 @@
-import { product1 } from "@/assets";
 import { useMainContext } from "@/hooks/useMainContext";
 import { AiFillStar } from "react-icons/ai";
 
@@ -11,11 +10,11 @@ const ProductItem = ({ data: product }: IProps) => {
 
   return (
     <div className="product" key={product.id}>
-      <img src={product1} alt="Product" />
+      <img src={product.img_url} alt="Product" />
       <div className="product-body">
         <div className="top">
-          <h3 className="title">{product.name}</h3>
-          <span>{product.price.toLocaleString("ru")} сум</span>
+          <h3 className="title">{product.sub_category_name}</h3>
+          <span>{product.price} сум</span>
         </div>
         <p>ID / {product.product_id}</p>
         <p className="stars">

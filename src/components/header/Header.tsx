@@ -1,28 +1,53 @@
-import { LogoImg } from "@/assets";
+// * react
+import { useEffect, useState } from "react";
+
+// * context - hook
 import { useMainContext } from "@/hooks/useMainContext";
-import { Switch, Modal } from "antd";
-import { useState } from "react";
+
+// * router
 import { Link, NavLink } from "react-router-dom";
+
+// * images
+import { LogoImg } from "@/assets";
+
+// * components (icons)
+import { Switch, Modal } from "antd";
 import { AiOutlineMenu } from "react-icons/ai";
+import { IoIosArrowDown } from "react-icons/io";
+
+// API
+import axios from "../../api";
+
+// Store
+import { useAppDispatch, useAppSelector } from "@/store/hooks/hooks";
+import { setCategories } from "../../store/categories/categorieSlice"
+
+
+// ====================================================================
 
 const Header = () => {
+
+
+  const [categorieState, setCategorieState] = useState<ICategories[]>([]);
   const [showCategories, setShowCategories] = useState(false);
   const [showMenuItems, setShowMenuItems] = useState(false);
   const { mode, setMode } = useMainContext()!;
+
+
+  // ===============================================================
+
+  // Store - hooks
+  const dispatch = useAppDispatch();
+  const { categories } = useAppSelector(state => state.Categories)
+
 
   window.addEventListener("click", () => {
     setShowCategories(false);
     setShowMenuItems(false);
   });
+  
 
-  const catalogs = [
-    "Каталог-1",
-    "Каталог-2",
-    "Каталог-3",
-    "Каталог-4",
-    "Каталог-5",
-  ];
-
+  // Navigating
   const landingNavigate = (section_id: string) => {
     setShowMenuItems(false);
     setTimeout(() => {
@@ -32,10 +57,33 @@ const Header = () => {
     }, 200);
   };
 
+
+  // Theme change button
   const handleModebutton = (checked: boolean) => {
     localStorage.setItem("mode", JSON.stringify(checked));
     setMode(checked);
   };
+
+
+  async function getCategories() {
+    try {
+      const response = await axios.get("categories");
+      const data = await response.data;
+
+      if (response.status === 200) {
+        dispatch(setCategories(data.data))
+        setCategorieState(data.data)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getCategories();
+    setCategorieState(categories);
+  }, []);
+
 
   return (
     <>
@@ -43,7 +91,7 @@ const Header = () => {
         <Modal />
         <div className="container">
           <div className="header-inner">
-            <a href="/">
+            <a href="/" className="logo">
               <img src={LogoImg} alt="Logo" />
             </a>
             <div>
@@ -69,19 +117,20 @@ const Header = () => {
                   }}
                 >
                   Каталог
+                  <IoIosArrowDown />
                   <ul
                     className={
                       showCategories ? "categories active" : "categories"
                     }
                   >
-                    {catalogs.map((catalog, index) => (
+                    {categorieState.map((category, index) => (
                       <Link
                         to={"/shopping"}
                         key={index}
                         className="category"
                         onClick={() => setShowMenuItems(false)}
                       >
-                        {catalog}
+                        {category.name}
                       </Link>
                     ))}
                   </ul>

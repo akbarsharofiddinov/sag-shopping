@@ -31,7 +31,7 @@ const Rate = () => {
               </ul>
             </div>
           </div>
-          <textarea placeholder="Ваше сообщение"></textarea>
+          <textarea id="message" placeholder="Ваше сообщение"></textarea>
           <button>Отправить</button>
         </form>
       </div>

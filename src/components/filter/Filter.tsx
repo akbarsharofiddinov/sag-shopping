@@ -1,28 +1,56 @@
-import { Slider } from "antd";
-import { useState } from "react";
+import { setSelectedCategoryID } from "@/store/categories/categorieSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks/hooks";
+import { useEffect } from "react";
+import { IoIosArrowBack } from "react-icons/io";
 
 const Filter = () => {
-  const [min, setMin] = useState<number>(0);
-  const [max, setMax] = useState<number>(100);
+  const { selectedCategory, subCategories, selectedSubCategoryID } =
+    useAppSelector((state) => state.Categories);
 
-  const changeSlider = (newValue: number[]) => {
-    setMin(newValue[0]);
-    setMax(newValue[1]);
-  };
+  const category = selectedCategory.split(" ");
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (subCategories.length > 0) {
+      const defaultSubCategory = subCategories[0];
+      dispatch(
+        setSelectedCategoryID({
+          id: defaultSubCategory.id,
+          slug: defaultSubCategory.slug,
+        })
+      );
+    }
+  }, [selectedCategory]);
 
   return (
     <div className="filter">
-      <div className="top">
-        <h1 className="title">Сортировать по:</h1>
-        <p className="price">Цена</p>
-      </div>
-      <div className="slider-box">
-        <Slider range value={[min, max]} onChange={changeSlider} />
-        <p>
-          <span>{min}</span>
-          <span>{max}</span>
+      <p className="title-filter">{<IoIosArrowBack />}Все категории</p>
+      <ul className="subCategories-menu">
+        <p className="selected-category">
+          Категория - {category[category.length - 1]}
         </p>
-      </div>
+        {subCategories.map((subCategory, index) => (
+          <li
+            className={
+              selectedSubCategoryID.id === subCategory.id
+                ? "category active"
+                : "category"
+            }
+            key={`${subCategory.name}_${index}`}
+            onClick={() =>
+              dispatch(
+                setSelectedCategoryID({
+                  id: subCategory.id,
+                  slug: subCategory.slug,
+                })
+              )
+            }
+          >
+            {subCategory.name}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

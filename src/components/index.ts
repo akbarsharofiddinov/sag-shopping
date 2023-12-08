@@ -1,8 +1,8 @@
 export { default as Header } from "./header/Header";
 export { default as Footer } from "./footer/Footer";
 export { default as Layout } from "./layout/Layout";
-export { default as Catalog } from "./sections/catalog/Catalog";
-export { default as UserPleased } from "./sections/usrPleased/UserPleased";
+export { default as Catalog } from "./sections/categories/Categories";
+export { default as UserPleased } from "./sections/reviews/Reviews";
 export { default as Rate } from "./sections/rate/Rate";
 export { default as About } from "./sections/about/About";
 export { default as Products } from "./products/Products";

@@ -36,6 +36,9 @@
 
         &_item,
         &_item a {
+          display: flex;
+          align-items: center;
+          gap: 4px;
           color: $main-blue;
           font-size: 17px;
           cursor: pointer;
@@ -59,9 +62,9 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
             border-radius: 6px;
             top: -20px;
-            width: 200%;
+            width: 250%;
             padding: 6px 0;
-            z-index: 2;
+            z-index: 15;
 
             opacity: 0;
             visibility: hidden;
@@ -72,6 +75,7 @@
             .category {
               display: block;
               padding: 12px;
+              width: 100%;
             }
 
             &.active {

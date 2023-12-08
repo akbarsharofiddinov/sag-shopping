@@ -5,26 +5,38 @@
   width: 70%;
   padding: 40px;
 
-  .top {
+  .title-filter {
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 500;
+
     display: flex;
     align-items: center;
-    gap: 10px;
-
-    .title {
-      font-size: 18px;
-    }
+    gap: 5px;
+    color: $main-blue;
   }
 
-  .slider-box {
-    margin-top: 20px;
-    border-top: 2px solid #eee;
-    border-bottom: 2px solid #eee;
-    padding: 20px 0;
+  .subCategories-menu {
 
-    p {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .selected-category {
+      padding-left: 20px;
+      margin: 10px 0;
+      color: $main-blue;
+      font-size: 16px;
+    }
+
+    .category {
+      padding: 4px 0 4px 30px;
+      font-size: 13px;
+      cursor: pointer;
+
+      &:hover {
+        color: royalblue;
+      }
+
+      &.active {
+        color: royalblue;
+      }
     }
   }
 }
