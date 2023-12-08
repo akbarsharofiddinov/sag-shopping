@@ -1,5 +1,5 @@
 import myAxios from "@/api";
-import { client1, product1 } from "@/assets";
+import { client1 } from "@/assets";
 import { useAppDispatch, useAppSelector } from "@/store/hooks/hooks";
 import { setReviews } from "@/store/reviews/reviewSlice";
 import { useEffect } from "react";
