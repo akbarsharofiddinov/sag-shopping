@@ -9,12 +9,15 @@ const App: React.FC = () => {
   const [mode, setMode] = useState(
     JSON.parse(localStorage.getItem("mode") + "")
   );
+  const [productID, setProductID] = useState(0)
 
   const contextValues = {
     modal,
     setModal,
     mode,
-    setMode
+    setMode,
+    productID,
+    setProductID
   };
 
   const router = createBrowserRouter([

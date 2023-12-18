@@ -4,11 +4,19 @@
 
   .section-inner {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    align-items: start;
+    gap: 15px;
 
     .filter {
       max-width: 278px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .shop-page {
+    .section-inner {
+      flex-direction: row;
     }
   }
 }

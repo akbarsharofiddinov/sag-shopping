@@ -34,12 +34,14 @@
       .category {
         display: flex;
         align-items: center;
+        justify-content: center;
         cursor: pointer;
         height: 200px;
         width: 100%;
 
         h1 {
           position: absolute;
+          text-align: center;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);

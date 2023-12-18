@@ -5,6 +5,8 @@ interface IContext {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   mode: boolean;
   setMode: React.Dispatch<any>;
+  productID: number;
+  setProductID: React.Dispatch<React.SetStateAction<number>>;
 }
 
 

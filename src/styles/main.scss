@@ -24,18 +24,17 @@ section {
 
 .title {
   color: $main-blue;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 500;
 }
 
 .toTopButton {
   position: fixed;
-  bottom: 40px;
-  right: 35px;
+  bottom: 20px;
+  right: 30px;
   background-color: $light-blue;
   color: #fff;
   border: none;
-  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
   display: flex;
   align-items: center;

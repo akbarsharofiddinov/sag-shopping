@@ -134,6 +134,10 @@
       transform: translateX(200px);
       transition: transform 0.2s;
 
+      .categories {
+        right: 100%;
+      }
+
       .menu-title {
         color: $light-blue;
         font-size: 24px;

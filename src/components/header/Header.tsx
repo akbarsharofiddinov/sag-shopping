@@ -20,32 +20,26 @@ import axios from "../../api";
 
 // Store
 import { useAppDispatch, useAppSelector } from "@/store/hooks/hooks";
-import { setCategories } from "../../store/categories/categorieSlice"
-
+import { setCategories } from "../../store/categories/categorieSlice";
 
 // ====================================================================
 
 const Header = () => {
-
-
   const [categorieState, setCategorieState] = useState<ICategories[]>([]);
   const [showCategories, setShowCategories] = useState(false);
   const [showMenuItems, setShowMenuItems] = useState(false);
   const { mode, setMode } = useMainContext()!;
 
-
   // ===============================================================
 
   // Store - hooks
   const dispatch = useAppDispatch();
-  const { categories } = useAppSelector(state => state.Categories)
-
+  const { categories } = useAppSelector((state) => state.Categories);
 
   window.addEventListener("click", () => {
     setShowCategories(false);
     setShowMenuItems(false);
   });
-  
 
   // Navigating
   const landingNavigate = (section_id: string) => {
@@ -57,13 +51,11 @@ const Header = () => {
     }, 200);
   };
 
-
   // Theme change button
   const handleModebutton = (checked: boolean) => {
     localStorage.setItem("mode", JSON.stringify(checked));
     setMode(checked);
   };
-
 
   async function getCategories() {
     try {
@@ -71,8 +63,8 @@ const Header = () => {
       const data = await response.data;
 
       if (response.status === 200) {
-        dispatch(setCategories(data.data))
-        setCategorieState(data.data)
+        dispatch(setCategories(data.data));
+        setCategorieState(data.data);
       }
     } catch (error) {
       console.log(error);
@@ -83,7 +75,6 @@ const Header = () => {
     getCategories();
     setCategorieState(categories);
   }, []);
-
 
   return (
     <>
@@ -120,12 +111,14 @@ const Header = () => {
                   <IoIosArrowDown />
                   <ul
                     className={
-                      showCategories ? "categories active" : "categories"
+                      showCategories && showMenuItems
+                        ? "categories active"
+                        : "categories"
                     }
                   >
                     {categorieState.map((category, index) => (
                       <Link
-                        to={"/shopping"}
+                        to={`/shopping/${category.slug}`}
                         key={index}
                         className="category"
                         onClick={() => setShowMenuItems(false)}

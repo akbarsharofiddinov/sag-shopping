@@ -2,6 +2,7 @@ import { setSelectedCategoryID } from "@/store/categories/categorieSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks/hooks";
 import { useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Filter = () => {
   const { selectedCategory, subCategories, selectedSubCategoryID } =
@@ -25,11 +26,13 @@ const Filter = () => {
 
   return (
     <div className="filter">
-      <p className="title-filter">{<IoIosArrowBack />}Все категории</p>
+      <p className="title-filter">
+        <Link to={"/"}>{<IoIosArrowBack />}Все категории</Link>
+      </p>
+      <p className="selected-category">
+        Категория - {category[category.length - 1]}
+      </p>
       <ul className="subCategories-menu">
-        <p className="selected-category">
-          Категория - {category[category.length - 1]}
-        </p>
         {subCategories.map((subCategory, index) => (
           <li
             className={

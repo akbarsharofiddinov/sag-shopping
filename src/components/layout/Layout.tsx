@@ -24,10 +24,12 @@ const Layout = () => {
 
   return (
     <div className={mode ? "layout dark" : "layout"}>
+      <MyModal children={undefined} />
       <Header />
-      <Outlet />
+      <div style={{ minHeight: "72vh" }}>
+        <Outlet />
+      </div>
       <Footer />
-      <MyModal />
 
       <button
         className={showToTopBtn ? "toTopButton active" : "toTopButton"}
