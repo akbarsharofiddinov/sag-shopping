@@ -1,173 +1,173 @@
 @import "../common/variables";
 
 .header {
-  padding: 25px 0;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-  z-index: 50;
+    padding: 25px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    z-index: 50;
 
-  &-inner {
-    display: flex;
-    justify-content: space-between;
-
-    img {
-      width: 100px;
-    }
-
-    div {
-      display: flex;
-      align-items: center;
-      gap: 35px;
-
-      .bar-menu {
-        display: none;
-        color: $light-blue;
-        background-color: transparent;
-        border: none;
-        font-size: 26px;
-        transform: translateY(5px);
-        cursor: pointer;
-      }
-
-      .header-menu {
+    &-inner {
         display: flex;
-        align-items: center;
-        gap: 36px;
+        justify-content: space-between;
 
-        &_item,
-        &_item a {
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          color: $main-blue;
-          font-size: 17px;
-          cursor: pointer;
-
-          transition: color 0.2s;
-
-          &:hover {
-            color: $light-blue;
-          }
+        img {
+            width: 100px;
         }
 
-        &_item {
-          position: relative;
-          background-color: transparent;
-          border: none;
-          text-align: start;
+        div {
+            display: flex;
+            align-items: center;
+            gap: 35px;
 
-          .categories {
-            background-color: #fff;
-            position: absolute;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-            border-radius: 6px;
-            top: -20px;
-            width: 250%;
-            padding: 6px 0;
-            z-index: 15;
-
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-
-            transition: opacity 0.2s, visibility 0.2s, top 0.2s;
-
-            .category {
-              display: block;
-              padding: 12px;
-              width: 100%;
+            .bar-menu {
+                display: none;
+                color: $light-blue;
+                background-color: transparent;
+                border: none;
+                font-size: 26px;
+                transform: translateY(5px);
+                cursor: pointer;
             }
 
-            &.active {
-              opacity: 1;
-              visibility: visible;
-              pointer-events: all;
-              top: 140%;
+            .header-menu {
+                display: flex;
+                align-items: center;
+                gap: 36px;
+
+                &_item,
+                &_item a {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    color: $main-blue;
+                    font-size: 17px;
+                    cursor: pointer;
+
+                    transition: color 0.2s;
+
+                    &:hover {
+                        color: $light-blue;
+                    }
+                }
+
+                &_item {
+                    position: relative;
+                    background-color: transparent;
+                    border: none;
+                    text-align: start;
+
+                    .categories {
+                        background-color: #fff;
+                        position: absolute;
+                        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+                        border-radius: 6px;
+                        top: -20px;
+                        width: 250%;
+                        padding: 6px 0;
+                        z-index: 15;
+
+                        opacity: 0;
+                        visibility: hidden;
+                        pointer-events: none;
+
+                        transition: opacity 0.2s, visibility 0.2s, top 0.2s;
+
+                        .category {
+                            display: block;
+                            padding: 12px;
+                            width: 100%;
+                        }
+
+                        &.active {
+                            opacity: 1;
+                            visibility: visible;
+                            pointer-events: all;
+                            top: 140%;
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
-  // --------------------------------
+    // --------------------------------
 
-  transition: background-color 0.2s;
+    transition: background-color 0.2s;
 }
 
 .layout.dark {
-  .header {
-    background-color: $dark-blue_bg;
-
-    .categories {
-      background-color: $dark-blue_bg_hover;
-    }
-
-    button,
-    a {
-      color: #fff !important;
-    }
-  }
-}
-
-@media (max-width: 1280px) {
-  .header {
-    padding: 25px 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    &-menu {
-      position: relative;
-      padding-top: 130px !important;
-      background-color: #fff;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      flex-direction: column;
-      align-items: start !important;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 20;
-      padding: 0 20px;
-
-      transform: translateX(200px);
-      transition: transform 0.2s;
-
-      .categories {
-        right: 100%;
-      }
-
-      .menu-title {
-        color: $light-blue;
-        font-size: 24px;
-        font-weight: 400;
-        position: absolute;
-        top: 0px;
-        left: 0;
-        right: 0;
-        box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 27px 20px;
-      }
-
-      &.show {
-        transform: translateX(0);
-      }
-    }
-    .bar-menu {
-      display: inline-block !important;
-    }
-  }
-
-  .layout.dark {
     .header {
-      &-menu {
         background-color: $dark-blue_bg;
 
         .categories {
-          background-color: $dark-blue_bg_hover;
+            background-color: $dark-blue_bg_hover;
         }
-      }
+
+        button,
+        a {
+            color: #fff !important;
+        }
     }
-  }
+}
+
+@media (max-width: 1280px) {
+    .header {
+        padding: 25px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        &-menu {
+            position: relative;
+            padding-top: 130px !important;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            align-items: start !important;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 20;
+            padding: 0 20px;
+
+            transform: translateX(200px);
+            transition: transform 0.2s;
+
+            .categories {
+                right: 100%;
+            }
+
+            .menu-title {
+                color: $light-blue;
+                font-size: 24px;
+                font-weight: 400;
+                position: absolute;
+                top: 0px;
+                left: 0;
+                right: 0;
+                box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.1);
+                padding: 27px 20px;
+            }
+
+            &.show {
+                transform: translateX(0);
+            }
+        }
+        .bar-menu {
+            display: inline-block !important;
+        }
+    }
+
+    .layout.dark {
+        .header {
+            &-menu {
+                background-color: $dark-blue_bg;
+
+                .categories {
+                    background-color: $dark-blue_bg_hover;
+                }
+            }
+        }
+    }
 }
