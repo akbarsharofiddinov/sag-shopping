@@ -5,13 +5,14 @@ const AdditionalInfo = () => {
     <section className="section-additional-info">
       <div className="container">
         <h1 className="title" style={{ width: "400px", fontSize: 28 }}>
-          Gilamni togri yuvish va foydalanish haqida foydali malumotlar
+          Полезная информация о правильной стирке и использовании ковра.
         </h1>
         <div className="info-boxes">
           <div className="info-box">
             <div className="info-doc">
               <h1 className="title">
-                1. Haftada bir marta changyutgichda tozalab yuting.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Magnam, quasi?
               </h1>
               <p className="desc">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
@@ -30,7 +31,9 @@ const AdditionalInfo = () => {
           </div>
           <div className="info-box">
             <div className="info-doc">
-              <h1 className="title">2. Honalarni shamollatib turing.</h1>
+              <h1 className="title">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              </h1>
               <p className="desc">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
                 natus eligendi adipisci nobis debitis porro similique cum
@@ -49,7 +52,7 @@ const AdditionalInfo = () => {
           <div className="info-box">
             <div className="info-doc">
               <h1 className="title">
-                3. Prefessional tozalashni amalga oshiring.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum.
               </h1>
               <p className="desc">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
